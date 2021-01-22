@@ -15,10 +15,12 @@ def getdata():
     # 连接class
     query = Aqidata.query
     # 为查询创建别名
-    query.select('data','time')
-    # 选择类
+    query.descending('createdAt')
+    # 选择排序方式
     query.limit(24)
     # 限定数量
+    query.select('data','time')
+    # 选择类
     query_list = query.find()
     # 执行查询，返回数组
     datalist=[]
